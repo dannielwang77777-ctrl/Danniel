@@ -550,6 +550,104 @@
       background: rgba(255,255,255,.04);
     }
 
+    .budget-table {
+      border: 1px solid var(--line);
+      overflow: hidden;
+    }
+
+    .budget-row {
+      display: grid;
+      grid-template-columns: 1.35fr .55fr .45fr 2fr;
+      border-bottom: 1px solid var(--line);
+      min-height: 68px;
+    }
+
+    .budget-row:last-child { border-bottom: 0; }
+    .budget-row > div {
+      padding: 16px 18px;
+      border-right: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .budget-row > div:last-child { border-right: 0; }
+    .budget-row.head > div {
+      color: #111;
+      background: var(--lime);
+      font-weight: 1000;
+      text-transform: uppercase;
+    }
+
+    .budget-row.total > div {
+      color: var(--white);
+      background: rgba(208,255,45,.08);
+      font-weight: 1000;
+      font-size: 17px;
+    }
+
+    .level-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .level-card {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      padding: 22px;
+      min-height: 410px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .level-card.highlight {
+      border-color: var(--lime);
+      background: linear-gradient(180deg, rgba(208,255,45,.12), rgba(255,255,255,.025));
+    }
+
+    .level-no {
+      color: var(--lime);
+      font-size: 13px;
+      font-weight: 1000;
+      text-transform: uppercase;
+    }
+
+    .level-count {
+      color: var(--white);
+      font-size: 64px;
+      line-height: 1;
+      font-weight: 1000;
+      margin: 24px 0 8px;
+    }
+
+    .level-card h3 { font-size: 25px; }
+    .level-card p { margin-bottom: 18px; }
+    .level-card ul {
+      list-style: none;
+      padding: 16px 0 0;
+      margin: auto 0 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .level-card li {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+      padding: 5px 0 5px 16px;
+      position: relative;
+    }
+
+    .level-card li:before {
+      content: "+";
+      position: absolute;
+      left: 0;
+      color: var(--lime);
+      font-weight: 1000;
+    }
+
     .closing {
       text-align: center;
       padding: 120px 28px 80px;
@@ -595,7 +693,8 @@
       .grid.cols-2,
       .kpi-grid,
       .roadmap,
-      .program { grid-template-columns: 1fr 1fr; }
+      .program,
+      .level-grid { grid-template-columns: 1fr 1fr; }
       .phase-title { position: static; }
       .navlinks { display: none; }
     }
@@ -609,10 +708,13 @@
       .grid.cols-2,
       .kpi-grid,
       .roadmap,
-      .program { grid-template-columns: 1fr; }
+      .program,
+      .level-grid { grid-template-columns: 1fr; }
       .row { grid-template-columns: 1fr; }
       .row > div { border-right: 0; border-bottom: 1px solid var(--line); }
       .row > div:last-child { border-bottom: 0; }
+      .budget-row { grid-template-columns: 1fr 1fr; }
+      .budget-row > div { border-bottom: 1px solid var(--line); }
       h1 { font-size: 56px; }
       .footer { flex-direction: column; }
     }
@@ -632,6 +734,8 @@
       <a href="#roles">Roles</a>
       <a href="#phases">Phases</a>
       <a href="#pilot">90 Days</a>
+      <a href="#budget">Budget</a>
+      <a href="#membership">Members</a>
       <a href="#company">Company</a>
     </div>
   </nav>
@@ -911,7 +1015,129 @@
           </div>
           <div class="program-item">
             <strong>Membership Test</strong>
-            <p>90天先做轻量分层：普通参与者、种子跑者、核心成员、未来付费会员，只验证权益吸引力。</p>
+            <p>以累计参与次数建立四级成长路径：1次、3次、9次、15次。规则简单透明，让跑者持续出现，让商场权益能够精准激励复访。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="budget">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="num">05 / 90 DAYS BUDGET</div>
+          <div>
+            <h2>12万元，用于验证人群、内容与商业闭环。</h2>
+            <p class="sub">预算优先投入冷启动和真实到场，采用轻团队、固定例跑和一次主题事件的配置。商场场地、官方流量、停车及商户权益建议以资源形式另行支持。</p>
+          </div>
+        </div>
+
+        <div class="budget-table">
+          <div class="budget-row head">
+            <div>预算模块</div><div>金额</div><div>占比</div><div>用途说明</div>
+          </div>
+          <div class="budget-row">
+            <div>项目运营与人员</div><div>24,000元</div><div>20%</div><div>主理人统筹、社群运营、报名管理、路线及商户协调、每场复盘。</div>
+          </div>
+          <div class="budget-row">
+            <div>11场常规例跑</div><div>22,000元</div><div>18.3%</div><div>约2,000元/场，覆盖基础执行、领跑、补给、签到物料与影像记录。</div>
+          </div>
+          <div class="budget-row">
+            <div>冷启动与达人邀请</div><div>30,000元</div><div>25%</div><div>广州跑团、跑步达人、首批种子用户邀请，以及必要的交通与体验支持。</div>
+          </div>
+          <div class="budget-row">
+            <div>宠物主题跑</div><div>12,000元</div><div>10%</div><div>40人主题活动的视觉、互动、摄影、补给、宠物友好物料及现场执行。</div>
+          </div>
+          <div class="budget-row">
+            <div>内容与视觉制作</div><div>12,000元</div><div>10%</div><div>招募视觉、活动照片、短视频、小红书内容及90天项目总结。</div>
+          </div>
+          <div class="budget-row">
+            <div>跑者权益与商户联动</div><div>8,000元</div><div>6.7%</div><div>咖啡、轻食、停车、存包等测试性权益补贴。</div>
+          </div>
+          <div class="budget-row">
+            <div>保险及安全保障</div><div>4,000元</div><div>3.3%</div><div>活动保险、医药包、应急物资和路线安全保障。</div>
+          </div>
+          <div class="budget-row">
+            <div>数据与运营工具</div><div>2,000元</div><div>1.7%</div><div>报名、签到、会员次数、问卷和核销数据统计工具。</div>
+          </div>
+          <div class="budget-row">
+            <div>机动预算</div><div>6,000元</div><div>5%</div><div>天气改期、临时增补、设备运输和不可预见费用。</div>
+          </div>
+          <div class="budget-row total">
+            <div>90天预算合计</div><div>120,000元</div><div>100%</div><div>按预计260+精准到访人次测算，综合投入约462元/人次。</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="membership">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="num">06 / RUNNER LEVELS</div>
+          <div>
+            <h2>用参与次数建立身份感，用商场权益推动复访。</h2>
+            <p class="sub">不设置复杂贡献分。官方活动完成现场签到和签退即累计1次，等级长期累计、升级不降级；15次等级将在进入一年合作阶段后自然产生。</p>
+          </div>
+        </div>
+
+        <div class="level-grid">
+          <div class="level-card">
+            <div class="level-no">L1 · New Runner</div>
+            <div class="level-count">1<span style="font-size:18px;">次</span></div>
+            <h3>新跑者</h3>
+            <p>第一次认识四海Runner，完成从线上报名到线下体验。</p>
+            <ul>
+              <li>首次咖啡或饮品券</li>
+              <li>活动照片与路线资料</li>
+              <li>商户新客优惠</li>
+              <li>普通活动报名资格</li>
+            </ul>
+          </div>
+          <div class="level-card">
+            <div class="level-no">L2 · Regular</div>
+            <div class="level-count">3<span style="font-size:18px;">次</span></div>
+            <h3>常跑者</h3>
+            <p>形成初步复跑习惯，成为商场可持续触达的稳定用户。</p>
+            <ul>
+              <li>活动日停车减免1小时</li>
+              <li>咖啡或跑后套餐优惠</li>
+              <li>主题跑提前24小时报名</li>
+              <li>品牌试穿抽选资格</li>
+            </ul>
+          </div>
+          <div class="level-card">
+            <div class="level-no">L3 · Core</div>
+            <div class="level-count">9<span style="font-size:18px;">次</span></div>
+            <h3>核心跑者</h3>
+            <p>高频参与、稳定复访，构成社群氛围和品牌体验的核心样本。</p>
+            <ul>
+              <li>活动日停车减免2小时</li>
+              <li>每月免费咖啡券1张</li>
+              <li>主题跑优先或专属价格</li>
+              <li>新品内测与CORE装备</li>
+            </ul>
+          </div>
+          <div class="level-card highlight">
+            <div class="level-no">L4 · Sihai Crew</div>
+            <div class="level-count">15<span style="font-size:18px;">次</span></div>
+            <h3>四海跑者</h3>
+            <p>四海Runner的代表成员，从活动参与者成长为社群文化共同创造者。</p>
+            <ul>
+              <li>每月免费咖啡券2张</li>
+              <li>主题跑免费与活动保留名额</li>
+              <li>CREW专属装备及荣誉展示</li>
+              <li>品牌共创、领跑与商业邀约</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="program" style="margin-top:18px;">
+          <div class="program-item">
+            <strong>次数如何计算</strong>
+            <p>官方例跑与主题跑均计1次；须完成现场签到及签退；报名未到、代签或未完成活动不计次数。</p>
+          </div>
+          <div class="program-item">
+            <strong>商场如何承接</strong>
+            <p>通过咖啡券、停车、存包、主题跑、商户套餐和品牌体验逐级加码，让权益成本与跑者复访价值相匹配。</p>
           </div>
         </div>
       </div>
@@ -920,7 +1146,7 @@
     <section class="section">
       <div class="wrap split">
         <div>
-          <div class="num">05 / SUPPORT</div>
+          <div class="num">07 / SUPPORT</div>
           <h2>90天内双方分别支持什么。</h2>
         </div>
         <div class="grid cols-2">
@@ -941,7 +1167,7 @@
     <section class="section" id="company">
       <div class="wrap">
         <div class="section-head">
-          <div class="num">06 / COMPANY MODEL</div>
+          <div class="num">08 / COMPANY MODEL</div>
           <div>
             <h2>第二阶段开始公司化运营，利润按收入类型拆分。</h2>
             <p class="sub">第一阶段先验证，不做复杂分润；如果进入年框合作，建议设立或指定项目运营主体，把线上MCN、线下策划、跑者驿站三块业务合并运营。</p>
@@ -1014,7 +1240,7 @@
     <section class="section">
       <div class="wrap">
         <div class="section-head">
-          <div class="num">07 / ROI</div>
+          <div class="num">09 / ROI</div>
           <div>
             <h2>地产商的回报，不只看票款，而看人群资产。</h2>
             <p class="sub">四海Runner 的投入回报由四部分构成：精准到访、商户核销、内容曝光、品牌招商。90天先验证链路，一年形成稳定IP，三年沉淀城市资产。</p>
